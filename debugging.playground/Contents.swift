@@ -9,23 +9,25 @@ import UIKit
 //: ## Q1: Optionals
 //: The compiler is yelling at us. Why isn't this the correct way to unwrap optionals?
 
+
 class Foo {
     
     var wordA : String!
     var wordB : String!
     
     init (words: [String?]) {
-        wordA = words[0]
-        wordB = words[1]
+        wordA = words[0]!
+        wordB = words[1]!
     }
     
 //: [EXPLAIN YOUR ANSWER TO Q1 HERE]
+    //: because we check inside the words.
     
 
     
 //: ## Q2: Variable Types and Function Types
 //: Why does the compiler dislike the for loop? Also, what should we return?
-    
+
     class func arePalindromes(words: [String]) -> Bool! {
         let reversedWords = words.map() {String($0.characters.reverse())}
         var numElements = words.count
@@ -40,11 +42,12 @@ class Foo {
     }
     
 //: [EXPLAIN YOUR ANSWER TO Q2 HERE]
-    
+    //: let is constant. Since interger is a value type, we need a variable. we boolean returen true or false.
     
     
 //: ## Q3: More functions, and object initialization
 //: The method should be returning true or false -- what's wrong?
+//: Don't reture nil.
 //: Are we initializing the dictionary correctly?
     class func isAnagram(wordA: String, wordB: String) -> Bool! {
         var countLetters = [Character : Int]()
@@ -86,6 +89,8 @@ class Foo {
 }
 
 //: [EXPLAIN YOUR ANSWER TO Q3 HERE]
+
+//: no, dictionary initialize is not correct we need to name it as class.
 
 
 //: **Do not** change anything below.
